@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import Photos from './Photos/Photos';
+import Favourite from './Photos/Favourite';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 const clientID = `?client_id=vpwYTgTtMnKlJaExnJ5-d5HRHPmDRLPB7E-bxzErPrg`;
 const mainUrl = `https://api.unsplash.com/photos/`;
@@ -11,6 +13,8 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
+
+  const [favoritePhotos, setFavoritePhotos] = useState([]);
 
   const fetchImages = async () => {
     setLoading(true);
@@ -49,8 +53,8 @@ function App() {
   useEffect(() => {
     const event = window.addEventListener('scroll', () => {
       if (
-        (!loading && window.innerHeight + window.scrollY) >=
-        document.body.scrollHeight - 2
+        !loading &&
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 2
       ) {
         setPage((oldPage) => {
           return oldPage + 1;
@@ -67,45 +71,85 @@ function App() {
   };
 
   const handleFavoriteClick = (photo) => {
-    // Implement your favorite functionality here
-    console.log('Favorite clicked:', photo);
+    const existingIndex = favoritePhotos.findIndex(
+      (favPhoto) => favPhoto.id === photo.id
+    );
+
+    if (existingIndex !== -1) {
+      // If the photo is already in favorites, remove it
+      setFavoritePhotos((prevFavorites) =>
+        prevFavorites.filter((favPhoto) => favPhoto.id !== photo.id)
+      );
+    } else {
+      // If the photo is not in favorites, add it
+      setFavoritePhotos((prevFavorites) => [...prevFavorites, photo]);
+    }
   };
 
   return (
-    <div>
-      {/* Sticky Navbar */}
-      <nav className="navbar">
-        <div className="navbar__logo">Pixahive</div>
-        <form action="" className="navbar__search-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="search"
-            className="form-input"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button type="submit" className="submit-btn">
-            <FaSearch />
-          </button>
-        </form>
-      </nav>
-
-      <main>
-        <section className="photos">
-          <div className="photos-center">
-            {photos.map((image, index) => {
-              return (
-                <Photos
-                  key={index}
-                  {...image}
-                  onFavoriteClick={handleFavoriteClick} // Pass the handleFavoriteClick function here
-                />
-              );
-            })}
+    <Router>
+      <div>
+        {/* Sticky Navbar */}
+        <nav className="navbar">
+          <div className="navbar__logo">Pixahive</div>
+          <form action="" className="navbar__search-form" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="search"
+              className="form-input"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button type="submit" className="submit-btn">
+              <FaSearch />
+            </button>
+          </form>
+          <div className="navbar__links">
+            <Link to="/favourites">Favourites</Link>
           </div>
-        </section>
-      </main>
-    </div>
+        </nav>
+
+        {/* Router Switch */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <main>
+                <section className="photos">
+                  <div className="photos-center">
+                    {photos.map((image, index) => {
+                      const isFavorite = favoritePhotos.some(
+                        (favPhoto) => favPhoto.id === image.id
+                      );
+                      return (
+                        <Photos
+                          key={index}
+                          {...image}
+                          onFavoriteClick={() => handleFavoriteClick(image)} // Pass the handleFavoriteClick function here
+                          isFavorite={isFavorite} // Pass the isFavorite status here
+                        >
+                          {/* Pass isFavorite to Photos to show the favorite status */}
+                          {isFavorite ? <span>Added to Favorites</span> : null}
+                        </Photos>
+                      );
+                    })}
+                  </div>
+                </section>
+              </main>
+            }
+          />
+          <Route
+            path="/favourites"
+            element={
+              <Favourite
+                favoritePhotos={favoritePhotos}
+                handleRemoveFavorite={handleFavoriteClick} // Pass the handleFavoriteClick function here
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -5,18 +5,21 @@ const Photos = ({
   urls: { regular },
   alt_description,
   likes,
-  user: {
-    name,
-    portfolio_url,
-    profile_image: { medium },
-  },
+  user: { name, portfolio_url, profile_image: { medium } },
   onFavoriteClick,
+  isFavorite,
 }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isPhotoFavorite, setIsPhotoFavorite] = useState(isFavorite);
 
   const handleFavoriteClick = () => {
-    setIsFavorite(!isFavorite);
-    onFavoriteClick({ id, urls: { regular }, alt_description, likes, user: { name, portfolio_url, profile_image: { medium } } });
+    setIsPhotoFavorite(!isPhotoFavorite);
+    onFavoriteClick({
+      id,
+      urls: { regular },
+      alt_description,
+      likes,
+      user: { name, portfolio_url, profile_image: { medium } },
+    });
   };
 
   return (
@@ -30,8 +33,10 @@ const Photos = ({
         <a href={portfolio_url}>
           <img src={medium} className="user-img" alt="" />
         </a>
-        <button className={`favorite-btn ${isFavorite ? 'active' : ''}`} onClick={handleFavoriteClick}>
-          <span role="img" aria-label="Favorite">{isFavorite ? '❤️' : '♡'}</span>
+        <button className={`favorite-btn ${isPhotoFavorite ? 'active' : ''}`} onClick={handleFavoriteClick}>
+          <span role="img" aria-label="Favorite">
+            {isPhotoFavorite ? '❤️' : '♡'}
+          </span>
         </button>
       </div>
     </article>

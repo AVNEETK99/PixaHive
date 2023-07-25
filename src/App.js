@@ -1,38 +1,31 @@
+import React, { useState, useEffect } from 'react';
+import { FaSearch } from 'react-icons/fa';
 import Photos from './Photos/Photos';
-import {FaSearch} from 'react-icons/fa';
-import React,{ useState,useEffect } from 'react';
 
-
-
-const clientID = `?client_id=vpwYTgTtMnKlJaExnJ5-d5HRHPmDRLPB7E-bxzErPrg`
+const clientID = `?client_id=vpwYTgTtMnKlJaExnJ5-d5HRHPmDRLPB7E-bxzErPrg`;
 const mainUrl = `https://api.unsplash.com/photos/`;
 const searchUrl = `https://api.unsplash.com/search/photos/`;
 
-
-
-
-
 function App() {
-  const [loading,setLoading]=useState(false)
-  const [photos,setPhotos]=useState([])
-  const [page,setPage]=useState(1)
-  const [query,setQuery]=useState("")
+  const [loading, setLoading] = useState(false);
+  const [photos, setPhotos] = useState([]);
+  const [page, setPage] = useState(1);
+  const [query, setQuery] = useState('');
 
-  const fetchImages=async() =>{
+  const fetchImages = async () => {
     setLoading(true);
     let url;
-    const urlPage =`&page=${page}`
-    const urlQuery=`&query=${query}`
+    const urlPage = `&page=${page}`;
+    const urlQuery = `&query=${query}`;
 
-    if(query){
-      url=`${searchUrl}${clientID}${urlPage}${urlQuery}`;
+    if (query) {
+      url = `${searchUrl}${clientID}${urlPage}${urlQuery}`;
+    } else {
+      url = `${mainUrl}${clientID}${urlPage}`;
     }
-    else{
-      url=`${mainUrl}${clientID}${urlPage}`
-    }
-    try{
-      const response = await fetch(url)
-      const data=await response.json();
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
       setPhotos((oldPhoto) => {
         if (query && page === 1) {
           return data.results;
@@ -42,21 +35,19 @@ function App() {
           return [...oldPhoto, ...data];
         }
       });
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
     }
-    catch(error){
-      setLoading(false)
-      console.log(error)
-    }
-
-
-  }
-  
-  useEffect(() =>{
-    fetchImages();  
-  },[page])
+  };
 
   useEffect(() => {
-    const event = window.addEventListener("scroll", () => {
+    fetchImages();
+  }, [page]);
+
+  useEffect(() => {
+    const event = window.addEventListener('scroll', () => {
       if (
         (!loading && window.innerHeight + window.scrollY) >=
         document.body.scrollHeight - 2
@@ -66,10 +57,8 @@ function App() {
         });
       }
     });
-    return () => window.removeEventListener("scroll", event);
-  }, []);
-   
-
+    return () => window.removeEventListener('scroll', event);
+  }, [loading]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,27 +66,46 @@ function App() {
     fetchImages();
   };
 
-
+  const handleFavoriteClick = (photo) => {
+    // Implement your favorite functionality here
+    console.log('Favorite clicked:', photo);
+  };
 
   return (
-    <main>
-      <section className="search">
-        <form action="" className="search-form">
-          <input type='text' placeholder='search' className='form-input' value={query} onChange={(e)=> setQuery(e.target.value)}/>
-          <button type='submit' className='submit-btn'onClick={handleSubmit}>
-          <FaSearch/>
+    <div>
+      {/* Sticky Navbar */}
+      <nav className="navbar">
+        <div className="navbar__logo">Pixahive</div>
+        <form action="" className="navbar__search-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="search"
+            className="form-input"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button type="submit" className="submit-btn">
+            <FaSearch />
           </button>
         </form>
-      </section>
-      <section className='photos'>
-      <div className="photos-center">
-          {photos.map((image, index) => {
-            return <Photos key={index} {...image} />;
-          })}
-        </div>
+      </nav>
 
-      </section>
-    </main>
+      <main>
+        <section className="photos">
+          <div className="photos-center">
+            {photos.map((image, index) => {
+              return (
+                <Photos
+                  key={index}
+                  {...image}
+                  onFavoriteClick={handleFavoriteClick} // Pass the handleFavoriteClick function here
+                />
+              );
+            })}
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
 

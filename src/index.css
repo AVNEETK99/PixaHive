@@ -138,35 +138,7 @@ p {
 Stock Photos
 ===============
 */
-.search {
-  padding: 5rem 0 0 0;
-  width: 90vw;
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-.search-form {
-  display: flex;
-}
-.form-input {
-  width: 100%;
-}
-.form-input,
-.submit-btn {
-  padding: 0.75rem 1.25rem;
-  border: none;
-  text-transform: capitalize;
-  letter-spacing: var(--spacing);
-  font-size: 1.5rem;
-  background: transparent;
-  color: var(--clr-grey-5);
-  border-bottom: 3px solid var(--clr-grey-5);
-}
-.form-input {
-  color: var(--clr-grey-3);
-}
-.form-input::placeholder {
-  color: var(--clr-grey-5);
-}
+
 .photos {
   padding: 5rem 0;
 }
@@ -369,67 +341,115 @@ p {
 Stock Photos
 ===============
 */
-.search {
-  padding: 5rem 0 0 0;
-  width: 90vw;
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-.search-form {
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  z-index: 100; /* Add a z-index to make sure the navbar appears on top of other elements */
 }
+
+.navbar.focused {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar__logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 1rem; /* Add some spacing between the logo and the search bar */
+}
+
+.navbar__search-form {
+  display: flex;
+  align-items: center;
+}
+
 .form-input {
   width: 100%;
-}
-.form-input,
-.submit-btn {
   padding: 0.75rem 1.25rem;
   border: none;
   text-transform: capitalize;
-  letter-spacing: var(--spacing);
+  letter-spacing: 1px;
   font-size: 1.5rem;
   background: transparent;
-  color: var(--clr-grey-5);
-  border-bottom: 3px solid var(--clr-grey-5);
+  color: #666;
+  border-bottom: 3px solid #666;
 }
-.form-input {
-  color: var(--clr-grey-3);
-}
+
 .form-input::placeholder {
-  color: var(--clr-grey-5);
+  color: #666;
 }
-.photos {
-  padding: 5rem 0;
+
+.form-input.focused {
+  border-color: #0074d9;
 }
-.photos-center {
-  width: 90vw;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  gap: 2rem;
+
+.submit-btn {
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.submit-btn:focus {
+  box-shadow: 0 0 0 2px #0074d9;
+}
+/* Favorite button styles */
+.favorite-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--clr-primary-5); /* Use the primary color for the heart icon */
+  transition: transform 0.2s ease-in-out;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Apply a different color to the favorite button when it's active (clicked) */
+.favorite-btn.active {
+  color: #ff3c6c; /* Use the desired color for the active state */
+}
+
+/* Photo container styles */
 .photo {
-  height: 17.5rem;
   position: relative;
+  height: 17.5rem;
   overflow: hidden;
 }
+
 .photo > img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
 }
-.photo h4 {
-  margin-bottom: 0.5rem;
-}
-.photo p {
-  margin-bottom: 0;
-}
-.user-img {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-}
+
 .photo-info {
   position: absolute;
   width: 100%;
@@ -444,9 +464,11 @@ Stock Photos
   justify-content: space-between;
   align-items: center;
 }
+
 .photo:hover .photo-info {
   transform: translateY(0);
 }
+
 @media screen and (min-width: 576px) {
   .photos-center {
     grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
@@ -460,3 +482,15 @@ Stock Photos
   text-align: center;
   padding: 3rem;
 }
+
+/* Add these styles to your CSS */
+.navbar__logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 1rem; /* Add some spacing between the logo and the search bar */
+}
+
+

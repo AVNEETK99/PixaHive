@@ -604,4 +604,49 @@ Stock Photos
   background-color: var(--clr-primary-6);
 }
 
+.favorite-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--clr-primary-5);
+  transition: transform 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+}
+
+.favorite-btn.active {
+  color: #ff3c6c;
+}
+
+/* Add CSS for the share button */
+.share-btn {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  background-color: transparent; /* Set the background to transparent */
+  color: var(--clr-primary-5); /* Use the primary color for the share icon */
+  border: none;
+  outline: none;
+  padding: 0.4rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; /* Apply transform only on hover */
+}
+
+.share-btn:hover {
+  transform: scale(1.2); /* Apply transform effect on hover */
+}
+
+.share-btn:focus {
+  box-shadow: none; /* Remove box shadow when focused */
+}
 

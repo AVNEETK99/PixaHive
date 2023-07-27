@@ -1,137 +1,4 @@
-/*
-=============== 
-Variables
-===============
-*/
 
-:root {
-  /* dark shades of primary color*/
-  --clr-primary-1: hsl(205, 86%, 17%);
-  --clr-primary-2: hsl(205, 77%, 27%);
-  --clr-primary-3: hsl(205, 72%, 37%);
-  --clr-primary-4: hsl(205, 63%, 48%);
-  /* primary/main color */
-  --clr-primary-5: hsl(205, 78%, 60%);
-  /* lighter shades of primary color */
-  --clr-primary-6: hsl(205, 89%, 70%);
-  --clr-primary-7: hsl(205, 90%, 76%);
-  --clr-primary-8: hsl(205, 86%, 81%);
-  --clr-primary-9: hsl(205, 90%, 88%);
-  --clr-primary-10: hsl(205, 100%, 96%);
-  /* darkest grey - used for headings */
-  --clr-grey-1: hsl(209, 61%, 16%);
-  --clr-grey-2: hsl(211, 39%, 23%);
-  --clr-grey-3: hsl(209, 34%, 30%);
-  --clr-grey-4: hsl(209, 28%, 39%);
-  /* grey used for paragraphs */
-  --clr-grey-5: hsl(210, 22%, 49%);
-  --clr-grey-6: hsl(209, 23%, 60%);
-  --clr-grey-7: hsl(211, 27%, 70%);
-  --clr-grey-8: hsl(210, 31%, 80%);
-  --clr-grey-9: hsl(212, 33%, 89%);
-  --clr-grey-10: hsl(210, 36%, 96%);
-  --clr-white: #fff;
-  --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: hsl(360, 71%, 66%);
-  --clr-green-dark: hsl(125, 67%, 44%);
-  --clr-green-light: hsl(125, 71%, 66%);
-  --clr-black: #222;
-  --transition: all 0.3s linear;
-  --spacing: 0.1rem;
-  --radius: 0.25rem;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  --max-width: 1170px;
-  --fixed-width: 620px;
-}
-/*
-=============== 
-Global Styles
-===============
-*/
-
-*,
-::after,
-::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: var(--clr-white);
-  color: var(--clr-grey-1);
-  line-height: 1.5;
-  font-size: 0.875rem;
-}
-ul {
-  list-style-type: none;
-}
-a {
-  text-decoration: none;
-}
-h1,
-h2,
-h3,
-h4 {
-  letter-spacing: var(--spacing);
-  text-transform: capitalize;
-  line-height: 1.25;
-  margin-bottom: 0.75rem;
-}
-h1 {
-  font-size: 2.5rem;
-}
-h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.25rem;
-}
-h4 {
-  font-size: 0.875rem;
-}
-p {
-  margin-bottom: 1.25rem;
-}
-@media screen and (min-width: 800px) {
-  h1 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 2.5rem;
-  }
-  h3 {
-    font-size: 1.75rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-  body {
-    font-size: 1rem;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    line-height: 1;
-  }
-}
-/*  global classes */
-
-/* section */
-.section {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: var(--max-width);
-}
-
-@media screen and (min-width: 992px) {
-  .section {
-    width: 95vw;
-  }
-}
 
 /*
 =============== 
@@ -209,41 +76,41 @@ Variables
 
 :root {
   /* dark shades of primary color*/
-  --clr-primary-1: hsl(205, 86%, 17%);
-  --clr-primary-2: hsl(205, 77%, 27%);
-  --clr-primary-3: hsl(205, 72%, 37%);
-  --clr-primary-4: hsl(205, 63%, 48%);
+  --clr-primary-1: hsl(283, 86%, 17%);
+  --clr-primary-2: hsl(282, 77%, 27%);
+  --clr-primary-3: hsl(291, 72%, 37%);
+  --clr-primary-4: hsl(283, 63%, 48%);
   /* primary/main color */
-  --clr-primary-5: hsl(205, 78%, 60%);
+  --clr-primary-5: hsl(286, 78%, 60%);
   /* lighter shades of primary color */
-  --clr-primary-6: hsl(205, 89%, 70%);
-  --clr-primary-7: hsl(205, 90%, 76%);
-  --clr-primary-8: hsl(205, 86%, 81%);
-  --clr-primary-9: hsl(205, 90%, 88%);
-  --clr-primary-10: hsl(205, 100%, 96%);
+  --clr-primary-6: hsl(279, 90%, 70%);
+  --clr-primary-7: hsl(286, 90%, 76%);
+  --clr-primary-8: hsl(277, 86%, 81%);
+  --clr-primary-9: hsl(280, 90%, 88%);
+  --clr-primary-10: hsl(279, 100%, 96%);
   /* darkest grey - used for headings */
-  --clr-grey-1: hsl(209, 61%, 16%);
-  --clr-grey-2: hsl(211, 39%, 23%);
-  --clr-grey-3: hsl(209, 34%, 30%);
-  --clr-grey-4: hsl(209, 28%, 39%);
+  --clr-grey-1: hsl(280, 61%, 16%);
+  --clr-grey-2: hsl(282, 39%, 23%);
+  --clr-grey-3: hsl(281, 35%, 30%);
+  --clr-grey-4: hsl(284, 28%, 39%);
   /* grey used for paragraphs */
-  --clr-grey-5: hsl(210, 22%, 49%);
-  --clr-grey-6: hsl(209, 23%, 60%);
-  --clr-grey-7: hsl(211, 27%, 70%);
-  --clr-grey-8: hsl(210, 31%, 80%);
-  --clr-grey-9: hsl(212, 33%, 89%);
-  --clr-grey-10: hsl(210, 36%, 96%);
-  --clr-white: #fff;
-  --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: hsl(360, 71%, 66%);
-  --clr-green-dark: hsl(125, 67%, 44%);
-  --clr-green-light: hsl(125, 71%, 66%);
-  --clr-black: #222;
+  --clr-grey-5: hsl(274, 22%, 49%);
+  --clr-grey-6: hsl(284, 23%, 60%);
+  --clr-grey-7: hsl(280, 27%, 70%);
+  --clr-grey-8: hsl(287, 31%, 80%);
+  --clr-grey-9: hsl(280, 32%, 89%);
+  --clr-grey-10: hsl(283, 33%, 96%);
+  --clr-white: #ffffff;
+  --clr-red-dark: hsl(0, 69%, 36%);
+  --clr-red-light: hsl(0, 65%, 71%);
+  --clr-green-dark: hsl(125, 65%, 26%);
+  --clr-green-light: hsl(125, 77%, 81%);
+  --clr-black: #121212;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --light-shadow: 0 5px 15px rgba(78, 53, 85, 0.1);
+  --dark-shadow: 0 5px 15px rgba(34, 12, 38, 0.2);
   --max-width: 1170px;
   --fixed-width: 620px;
 }
@@ -341,6 +208,7 @@ p {
 Stock Photos
 ===============
 */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -353,7 +221,7 @@ Stock Photos
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
-  z-index: 100; /* Add a z-index to make sure the navbar appears on top of other elements */
+  z-index: 100;
 }
 
 .navbar.focused {
@@ -363,10 +231,32 @@ Stock Photos
 .navbar__logo {
   font-size: 2rem;
   font-weight: bold;
-  color: #333;
+  color: #260535;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-right: 1rem; /* Add some spacing between the logo and the search bar */
+  margin-right: 1rem;
+}
+
+/* Optional: Styling for Navbar Links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__links a {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem; /* Increase the font size */
+  font-weight: 600; /* Make it bolder */
+  background-color: rgb(50, 15, 67);
+  color: whitesmoke;
+  border-radius: 5px;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.navbar__links a:hover {
+  background-color: rgb(79, 29, 107);
+  color:whitesmoke
 }
 
 .navbar__search-form {
@@ -382,20 +272,20 @@ Stock Photos
   letter-spacing: 1px;
   font-size: 1.5rem;
   background: transparent;
-  color: #666;
-  border-bottom: 3px solid #666;
+  color: #21092f;
+  border-bottom: 3px solid #180a25;
 }
 
 .form-input::placeholder {
-  color: #666;
+  color: #7c5d87;
 }
 
 .form-input.focused {
-  border-color: #0074d9;
+  border-color: #7700d9;
 }
 
 .submit-btn {
-  background-color: #0074d9;
+  background-color: #3b0361;
   color: #fff;
   border: none;
   outline: none;
@@ -407,11 +297,11 @@ Stock Photos
 }
 
 .submit-btn:hover {
-  background-color: #0056b3;
+  background-color: #7005a2;
 }
 
 .submit-btn:focus {
-  box-shadow: 0 0 0 2px #0074d9;
+  box-shadow: 0 0 0 2px #9400d9;
 }
 /* Favorite button styles */
 .favorite-btn {
@@ -423,17 +313,23 @@ Stock Photos
   outline: none;
   cursor: pointer;
   font-size: 1.5rem;
-  color: var(--clr-primary-5); /* Use the primary color for the heart icon */
+  color: purple;
   transition: transform 0.2s ease-in-out;
+  z-index: 1;
 }
 
 .favorite-btn:hover {
   transform: scale(1.2);
 }
 
-/* Apply a different color to the favorite button when it's active (clicked) */
 .favorite-btn.active {
-  color: #ff3c6c; /* Use the desired color for the active state */
+  color: #340848;
+}
+
+.favourite-photo-info span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Photo container styles */
@@ -483,14 +379,7 @@ Stock Photos
   padding: 3rem;
 }
 
-.navbar__logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-right: 1rem; /* Add some spacing between the logo and the search bar */
-}
+
 
 
 
@@ -547,84 +436,6 @@ Stock Photos
   padding: 0;
 }
 
-/* Optional: Center Align the "Added to Favorites" Text */
-.favourite-photo-info span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Optional: Styling for Navbar Links */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
-  z-index: 100;
-}
-
-.navbar.focused {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.navbar__logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-right: 1rem;
-}
-
-/* Optional: Styling for Navbar Links */
-.navbar__links {
-  display: flex;
-  align-items: center;
-}
-
-.navbar__links a {
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem; /* Increase the font size */
-  font-weight: 600; /* Make it bolder */
-  background-color: var(--clr-primary-5);
-  color: rgb(13, 0, 0);
-  border-radius: 5px;
-  margin-left: 1rem;
-  text-decoration: none;
-}
-
-.navbar__links a:hover {
-  background-color: var(--clr-primary-6);
-}
-
-.favorite-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: var(--clr-primary-5);
-  transition: transform 0.2s ease-in-out;
-  z-index: 1;
-}
-
-.favorite-btn:hover {
-  transform: scale(1.2);
-}
-
-.favorite-btn.active {
-  color: #ff3c6c;
-}
 
 /* Share Button */
 .share-btn {
@@ -632,7 +443,7 @@ Stock Photos
   bottom: 0.5rem;
   left: 0.5rem;
   background-color: transparent;
-  color: var(--clr-primary-5);
+  color: plum;
   border: none;
   outline: none;
   padding: 0.4rem;
@@ -656,7 +467,7 @@ Stock Photos
   bottom: 0.5rem;
   left: 3rem; /* Adjust the left value to control the horizontal position */
   background-color: transparent;
-  color: var(--clr-primary-5);
+  color: plum;
   border: none;
   outline: none;
   padding: 0.4rem;

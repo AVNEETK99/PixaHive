@@ -626,26 +626,57 @@ Stock Photos
   color: #ff3c6c;
 }
 
-/* Add CSS for the share button */
+/* Share Button */
 .share-btn {
   position: absolute;
   bottom: 0.5rem;
   left: 0.5rem;
-  background-color: transparent; /* Set the background to transparent */
-  color: var(--clr-primary-5); /* Use the primary color for the share icon */
+  background-color: transparent;
+  color: var(--clr-primary-5);
   border: none;
   outline: none;
   padding: 0.4rem;
   border-radius: 50%;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out; /* Apply transform only on hover */
+  transition: transform 0.2s ease-in-out;
 }
 
 .share-btn:hover {
-  transform: scale(1.2); /* Apply transform effect on hover */
+  transform: scale(1.2);
 }
 
 .share-btn:focus {
-  box-shadow: none; /* Remove box shadow when focused */
+  box-shadow: none;
+}
+
+/* Download Button */
+.download-btn {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 3rem; /* Adjust the left value to control the horizontal position */
+  background-color: transparent;
+  color: var(--clr-primary-5);
+  border: none;
+  outline: none;
+  padding: 0.4rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.download-btn:hover {
+  transform: scale(1.2);
+}
+
+.download-btn:focus {
+  box-shadow: none;
+}
+
+/* Add a gap between <h4>{name}</h4> and the buttons */
+.photo-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Adjust the gap value as needed */
 }

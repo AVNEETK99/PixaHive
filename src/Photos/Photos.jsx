@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { FaHeart, FaShare } from 'react-icons/fa';
+import { FaHeart, FaShare, FaDownload } from 'react-icons/fa';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
 const Photos = ({
   id,
-  urls: { regular },
+  urls: { regular, full }, // Add the full-size image URL
   alt_description,
   likes,
   user: { name, portfolio_url, profile_image: { medium } },
@@ -19,7 +19,7 @@ const Photos = ({
     setIsPhotoFavorite(!isPhotoFavorite);
     onFavoriteClick({
       id,
-      urls: { regular },
+      urls: { regular, full }, // Pass the full-size image URL when updating favorite status
       alt_description,
       likes,
       user: { name, portfolio_url, profile_image: { medium } },
@@ -41,6 +41,15 @@ const Photos = ({
     setIsLightboxOpen(false);
   };
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = full;
+    link.download = `photo_${id}.jpg`; // You can customize the downloaded file name here
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <article className="photo">
       <img src={regular} alt={alt_description} onClick={openLightbox} />
@@ -59,6 +68,9 @@ const Photos = ({
           </p>
           <button className="share-btn" onClick={handleShare}>
             <FaShare className="share-icon" />
+          </button>
+          <button className="download-btn" onClick={handleDownload}>
+            <FaDownload className="download-icon" />
           </button>
         </div>
         <a href={portfolio_url}>
@@ -86,6 +98,9 @@ const Photos = ({
                 </p>
                 <button className="share-btn" onClick={handleShare}>
                   <FaShare className="share-icon" />
+                </button>
+                <button className="download-btn" onClick={handleDownload}>
+                  <FaDownload className="download-icon" />
                 </button>
               </div>
               <a href={portfolio_url}>

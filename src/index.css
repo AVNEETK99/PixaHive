@@ -444,9 +444,10 @@ Stock Photos
   left: 0.5rem;
   background-color: transparent;
   color: plum;
+  border-color: #3b0361;
   border: none;
   outline: none;
-  padding: 0.4rem;
+  padding: 0.1rem;
   border-radius: 50%;
   font-size: 1rem;
   cursor: pointer;
@@ -470,10 +471,11 @@ Stock Photos
   color: plum;
   border: none;
   outline: none;
-  padding: 0.4rem;
+  padding: 0.1rem;
   border-radius: 50%;
   font-size: 1rem;
   cursor: pointer;
+  border-color: #3b0361;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -490,4 +492,12 @@ Stock Photos
   display: flex;
   align-items: center;
   gap: 1rem; /* Adjust the gap value as needed */
+}
+
+
+
+/* Add space between navbar and photos */
+.photos {
+  padding: 5rem 0;
+  margin-top: 5rem; /* Add the desired margin value to create space */
 }

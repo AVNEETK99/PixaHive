@@ -247,7 +247,7 @@ Stock Photos
   padding: 0.5rem 1rem;
   font-size: 1.2rem; /* Increase the font size */
   font-weight: 600; /* Make it bolder */
-  background-color: rgb(50, 15, 67);
+  background-color: #260535;
   color: whitesmoke;
   border-radius: 5px;
   margin-left: 1rem;
@@ -255,7 +255,7 @@ Stock Photos
 }
 
 .navbar__links a:hover {
-  background-color: rgb(79, 29, 107);
+  background-color: rgb(81, 16, 103);
   color:whitesmoke
 }
 
@@ -272,7 +272,7 @@ Stock Photos
   letter-spacing: 1px;
   font-size: 1.5rem;
   background: transparent;
-  color: #21092f;
+  color: #260535;
   border-bottom: 3px solid #180a25;
 }
 
@@ -281,11 +281,11 @@ Stock Photos
 }
 
 .form-input.focused {
-  border-color: #7700d9;
+  border-color:rgb(81, 16, 103) ;
 }
 
 .submit-btn {
-  background-color: #3b0361;
+  background-color: #260535;
   color: #fff;
   border: none;
   outline: none;
@@ -297,11 +297,11 @@ Stock Photos
 }
 
 .submit-btn:hover {
-  background-color: #7005a2;
+  background-color: rgb(81, 16, 103);
 }
 
 .submit-btn:focus {
-  box-shadow: 0 0 0 2px #9400d9;
+  box-shadow: 0 0 0 2px rgb(81, 16, 103);
 }
 /* Favorite button styles */
 .favorite-btn {
@@ -313,7 +313,7 @@ Stock Photos
   outline: none;
   cursor: pointer;
   font-size: 1.5rem;
-  color: purple;
+  color: rgb(239, 191, 239);
   transition: transform 0.2s ease-in-out;
   z-index: 1;
 }
@@ -333,6 +333,17 @@ Stock Photos
 }
 
 /* Photo container styles */
+
+
+
+.photo:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Increase the shadow effect */
+  border: 2px solid #7005a2; /* Add a border to the photo on hover */
+}
+
+
+
 .photo {
   position: relative;
   height: 17.5rem;
@@ -443,7 +454,7 @@ Stock Photos
   bottom: 0.5rem;
   left: 0.5rem;
   background-color: transparent;
-  color: plum;
+  color:  rgb(239, 191, 239);
   border-color: #3b0361;
   border: none;
   outline: none;
@@ -456,6 +467,7 @@ Stock Photos
 
 .share-btn:hover {
   transform: scale(1.2);
+
 }
 
 .share-btn:focus {
@@ -468,7 +480,7 @@ Stock Photos
   bottom: 0.5rem;
   left: 3rem; /* Adjust the left value to control the horizontal position */
   background-color: transparent;
-  color: plum;
+  color:  rgb(239, 191, 239);
   border: none;
   outline: none;
   padding: 0.1rem;
